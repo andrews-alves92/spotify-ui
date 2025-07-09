@@ -1,5 +1,5 @@
 
-# 🎧 Spotify Playlist Redesign (React)
+# 🎧 Spotify Playlist Implementation (React)
 
 Este projeto é uma implementação da pagina de playlist baseado no [Spotify Redesign](https://youtu.be/suhEIUapSJQ?si=sqla5f_yZWG9cBa2&utm_source=ZTQxO) by [@Juxtopposed](https://github.com/juxtopposed).
 Desenvolvida com **React** para fins de portfólio. O foco principal foi aplicar **Clean Architecture**, **boas práticas de Clean Code**, reusabilidade de componentes, organização de pastas e aplicação de princípios **SOLID**, utilizando também **Context API** e **Zustand** para o gerenciamento de estado.
