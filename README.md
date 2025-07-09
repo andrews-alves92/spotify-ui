@@ -1,41 +1,39 @@
-
 # 🎧 Spotify Playlist Implementation (React)
 
-Este projeto é uma implementação da pagina de playlist baseado no [Spotify Redesign](https://youtu.be/suhEIUapSJQ?si=sqla5f_yZWG9cBa2&utm_source=ZTQxO) by [@Juxtopposed](https://github.com/juxtopposed).
-Desenvolvida com **React** para fins de portfólio. O foco principal foi aplicar **Clean Architecture**, **boas práticas de Clean Code**, reusabilidade de componentes, organização de pastas e aplicação de princípios **SOLID**, utilizando também **Context API** e **Zustand** para o gerenciamento de estado.
+This project is an implementation of a playlist page based on the [Spotify Redesign](https://youtu.be/suhEIUapSJQ?si=sqla5f_yZWG9cBa2&utm_source=ZTQxO) by [@Juxtopposed](https://github.com/juxtopposed). Developed with **React** for portfolio purposes. The main focus was to apply **Clean Architecture**, **Clean Code best practices**, component reusability, folder organization, and **SOLID principles**, while also utilizing **Context API** and **Zustand** for state management.
 
-🚀 O projeto foca na interaçao do usuário com o player, como tocar a musica, navegação entre as músicas e adicionar aos favoritos.
+🚀 The project focuses on user interaction with the player, such as playing music, navigating between tracks, and adding to favorites.
 
-> Não são usadas musicas, mas somente uma simulação de que tem algo sendo tocado.
-
----
-
-## ✨ Destaques do Projeto
-
-- **Implementação do Design** da página de playlist do Spotify
-- Desenvolvido com **React**
-- Estrutura baseada em **Clean Architecture**
-- Código limpo, modular e reutilizável
-- Uso de **Context API** para gerenciamento de estado (Player)
-- Uso de **Zustand** para persistencia dos dados (Lista de Favoritos e musica atual no player)
-- Separação clara de responsabilidades (context-providers, components, utils)
-- Aplicação de conceitos como **separação de camadas**, **responsabilidade única** e princípios do **SOLID**
-
+> No actual music is used, only a simulation of something being played.
 
 ---
 
-## 📁 Estrutura de Pastas
+## ✨ Project Highlights
+
+- **Design Implementation** of Spotify's playlist page
+- Developed with **React**
+- Structure based on **Clean Architecture**
+- Clean, modular, and reusable code
+- Use of **Context API** for state management (Player)
+- Use of **Zustand** for data persistence (Favorites list and current track in the player)
+- Clear separation of responsibilities (context-providers, components, utils)
+- Application of concepts such as **layer separation**, **single responsibility**, and **SOLID principles**
+
+---
+
+## 📁 Folder Structure
 
 ```bash
 app/
-├── components/              # Componentes visuais reutilizáveis
-├── context-providers/       # Contextos globais (PlayerContext, etc)
-├── utils/                   # Funções utilitárias
-├── entities/                # Definições das entidades
-├── api/                     # Camada de requisições para api
-├── services/                # Camada de services
-├── services/                # Camada de repositórios
-├── hooks/                   # Hooks customizados
-├── layout.tsx               # Estrutura base da aplicação
-├── page.tsx                 # Página principal (playlist)
-├── globals.scss             # Estilos globais
+├── components/              # Reusable visual components
+├── context-providers/       # Global contexts (PlayerContext, etc.)
+├── utils/                   # Utility functions
+├── entities/                # Entity definitions
+├── api/                     # API request layer
+├── services/                # Service layer
+├── repositories/            # Repository layer
+├── hooks/                   # Custom hooks
+├── layout.tsx               # Application base structure
+├── page.tsx                 # Main page (playlist)
+├── globals.scss             # Global styles
+```
