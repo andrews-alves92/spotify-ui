@@ -38,18 +38,19 @@ app/
 
 ---
 
-## 📁 Estrutura de Pastas
+## Getting Started
+
+First, run the development server:
 
 ```bash
-app/
-├── components/              # Componentes visuais reutilizáveis
-├── context-providers/       # Contextos globais (PlayerContext, etc)
-├── utils/                   # Funções utilitárias
-├── entities/                # Definições das entidades
-├── api/                     # Camada de requisições para api
-├── services/                # Camada de services
-├── services/                # Camada de repositórios
-├── hooks/                   # Hooks customizados
-├── layout.tsx               # Estrutura base da aplicação
-├── page.tsx                 # Página principal (playlist)
-├── globals.scss             # Estilos globais
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
