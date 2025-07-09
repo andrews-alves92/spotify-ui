@@ -1,0 +1,15 @@
+.progressContainer {
+  flex: 1;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.112);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.filledProgress {
+    position: absolute;
+    background-color: white;
+    height: 100%;
+    width: 0;
+    z-index: 1;
+}

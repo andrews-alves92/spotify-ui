@@ -1,0 +1,12 @@
+.playlistTable {
+  --bs-table-bg: transparent !important;
+  --bs-table-color: #898989 !important;
+}
+.playlistTable th,
+.playlistTable td {
+  vertical-align: middle;
+}
+
+.playlistTable tbody tr {
+  border-color: transparent;
+}

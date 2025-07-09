@@ -1,0 +1,18 @@
+$primary: #1ED760;
+$body-bg-dark: #0f0f0f;
+$body-color-dark: #898989;
+.flex-1 {
+    display: flex !important;
+    flex: 1 !important;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+@import '~bootstrap/scss/bootstrap.scss';

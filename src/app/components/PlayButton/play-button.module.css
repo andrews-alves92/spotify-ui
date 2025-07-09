@@ -1,0 +1,9 @@
+.baseBtn {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  margin: 0;
+}
+.playBtn {
+  padding-left: 1px;
+}

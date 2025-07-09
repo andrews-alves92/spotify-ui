@@ -1,0 +1,20 @@
+.playlistContainer {
+  background: linear-gradient(180deg, #1e2655 36%, rgba(0, 0, 0, 1) 100%);
+  border: 1px solid #151718 !important;
+}
+.playlistTable {
+  --bs-table-bg: transparent !important;
+  --bs-table-color: #898989 !important;
+}
+.playlistTable th,
+.playlistTable td {
+  vertical-align: middle;
+}
+
+.playlistTable tbody tr {
+  border-color: transparent;
+}
+.scrollableContainer {
+  height: calc(100vh - 180px);
+  overflow: scroll;
+}
