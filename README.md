@@ -4,7 +4,9 @@
 Este projeto é uma implementação da pagina de playlist baseado no [Spotify Redesign](https://youtu.be/suhEIUapSJQ?si=sqla5f_yZWG9cBa2&utm_source=ZTQxO) by [@Juxtopposed](https://github.com/juxtopposed).
 Desenvolvida com **React** para fins de portfólio. O foco principal foi aplicar **Clean Architecture**, **boas práticas de Clean Code**, reusabilidade de componentes, organização de pastas e aplicação de princípios **SOLID**, utilizando também **Context API** e **Zustand** para o gerenciamento de estado.
 
-> 🚀 O projeto foca na interaçao do usuário com o player.
+🚀 O projeto foca na interaçao do usuário com o player, como tocar a musica, navegação entre as músicas e adicionar aos favoritos.
+
+> Não são usadas musicas, mas somente uma simulação de que tem algo sendo tocado. Porém, respeitando a duração
 
 ---
 
