@@ -12,11 +12,12 @@ Desenvolvida com **React** para fins de portfólio. O foco principal foi aplicar
 
 ## ✨ Destaques do Projeto
 
-- **Redesign completo** da página de playlist do Spotify
-- Desenvolvido com **React 19**
+- **Implementação do Design** da página de playlist do Spotify
+- Desenvolvido com **React**
 - Estrutura baseada em **Clean Architecture**
 - Código limpo, modular e reutilizável
-- Uso de **Context API** e **Zustand** para gerenciamento de estado (Player) e persistencia dos dados (Lists de Favoritos)
+- Uso de **Context API** para gerenciamento de estado (Player)
+- Uso de **Zustand** para persistencia dos dados (Lista de Favoritos e musica atual no player)
 - Separação clara de responsabilidades (context-providers, components, utils)
 - Aplicação de conceitos como **separação de camadas**, **responsabilidade única** e princípios do **SOLID**
 
