@@ -6,7 +6,7 @@ Desenvolvida com **React** para fins de portfólio. O foco principal foi aplicar
 
 🚀 O projeto foca na interaçao do usuário com o player, como tocar a musica, navegação entre as músicas e adicionar aos favoritos.
 
-> Não são usadas musicas, mas somente uma simulação de que tem algo sendo tocado. Porém, respeitando a duração
+> Não são usadas musicas, mas somente uma simulação de que tem algo sendo tocado.
 
 ---
 
