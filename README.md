@@ -35,9 +35,26 @@ app/
 ├── layout.tsx               # Estrutura base da aplicação
 ├── page.tsx                 # Página principal (playlist)
 ├── globals.scss             # Estilos globais
+---
+
+## 📁 Estrutura de Pastas
+
+```bash
+app/
+├── components/              # Componentes visuais reutilizáveis
+├── context-providers/       # Contextos globais (PlayerContext, etc)
+├── utils/                   # Funções utilitárias
+├── entities/                # Definições das entidades
+├── api/                     # Camada de requisições para api
+├── services/                # Camada de services
+├── services/                # Camada de repositórios
+├── hooks/                   # Hooks customizados
+├── layout.tsx               # Estrutura base da aplicação
+├── page.tsx                 # Página principal (playlist)
+├── globals.scss             # Estilos globais
 
 
-
+---
 ## Getting Started
 
 First, run the development server:
