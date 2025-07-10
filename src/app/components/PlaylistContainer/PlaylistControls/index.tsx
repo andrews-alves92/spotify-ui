@@ -4,13 +4,14 @@ import { IoEllipsisHorizontal } from "react-icons/io5";
 import { LuListPlus, LuUpload } from "react-icons/lu";
 import { PiShuffleBold } from "react-icons/pi";
 import PlayButton from "../../PlayButton";
+import ShuffleButton from "../../PlayerComponent/ShuffleButton";
 
 export default function PlaylistControls() {
   return (
     <div className="row mt-3">
       <div className="d-flex align-items-center gap-4 col">
         <PlayButton />
-        <PiShuffleBold size={20} role="button" />
+        <ShuffleButton />
         <FiPlusCircle size={18} role="button" />
         <LuListPlus size={20} role="button" />
         <FiArrowDownCircle size={18} role="button" />

@@ -1,3 +1,4 @@
+import usePlayerContext from "@/app/context-providers/PlayerContextProvider/usePlayerContext";
 import { Song } from "@/app/entities";
 import { formatSecondsToMinutes } from "@/app/utils/formatters";
 import Image from "next/image";
@@ -8,21 +9,18 @@ import Style from "./playlist-songs-table-item.module.css";
 interface PlaylistSongTableItemProps {
   song: Song;
   index: number;
-  handleSelected: (song: Song) => void;
 }
 
 export default function PlaylistSongTableItem({
   song,
   index,
-  handleSelected,
 }: PlaylistSongTableItemProps) {
-  const onDoubleClick = () => {
-    handleSelected(song);
-  };
+  const { playSong } = usePlayerContext();
+  const handlePlaySong = () => playSong(song);
   return (
     <tr
       className={`small ${Style.itemContainer}`}
-      onDoubleClick={onDoubleClick}
+      onDoubleClick={handlePlaySong}
     >
       <th className="" scope="row ">
         {index + 1}

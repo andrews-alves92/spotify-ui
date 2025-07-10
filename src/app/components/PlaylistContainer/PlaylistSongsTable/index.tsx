@@ -7,11 +7,6 @@ interface PlaylistSongsTableProps {
   songs: Song[];
 }
 export default function PlaylistSongsTable({ songs }: PlaylistSongsTableProps) {
-  const { song: currentSelectedSong, playSong, isPlaying } = usePlayerContext();
-  const handlePlaySong = (song: Song) => {
-    playSong(song);
-  };
-
   return (
     <table className={`table ${Style.playlistTable} small`}>
       <thead>
@@ -31,15 +26,7 @@ export default function PlaylistSongsTable({ songs }: PlaylistSongsTableProps) {
       </thead>
       <tbody>
         {songs.map((song, index) => (
-          <PlaylistSongTableItem
-            key={index}
-            index={index}
-            song={song}
-            isFavorite={false}
-            isSelected={song.id == currentSelectedSong?.id}
-            isPlayingSong={song.id == currentSelectedSong?.id && isPlaying}
-            handleSelected={handlePlaySong}
-          />
+          <PlaylistSongTableItem key={index} index={index} song={song} />
         ))}
       </tbody>
     </table>

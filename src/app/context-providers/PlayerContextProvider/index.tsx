@@ -1,14 +1,23 @@
 import { Song } from "@/app/entities";
+import useElapsed from "@/app/hooks/useElapsed";
+import usePlayback from "@/app/hooks/usePlayback";
+import usePlayingInterval from "@/app/hooks/usePlayingInterval";
+import useQueueControl from "@/app/hooks/useQueueControl";
+import useShuffle from "@/app/hooks/useShuffle";
 import { createContext, useEffect, useRef, useState } from "react";
 
 interface PlayerContextProps {
   song: Song | undefined;
   queue: Song[];
   isPlaying: boolean;
+  isShuffling: boolean;
   elapsed: number;
   playSong: (song: Song) => void;
   togglePlay: () => void;
   setQueue: (queue: Song[]) => void;
+  skipForward: () => void;
+  skipBack: () => void;
+  toggleShuffle: () => void;
 }
 export const PlayerContext = createContext<PlayerContextProps | undefined>(
   undefined
@@ -17,40 +26,28 @@ interface PlayerProviderProps {
   children: React.ReactNode;
 }
 export default function PlayerProvider({ children }: PlayerProviderProps) {
-  const playingInterval = useRef<NodeJS.Timeout>(null);
-  const [elapsed, setElapsed] = useState(0);
-  const [song, setSong] = useState<Song>();
-  const [queue, setQueue] = useState<Song[]>([]);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const togglePlay = () => setIsPlaying((prev) => !prev);
-  const increaseElapsed = () => setElapsed((prev) => prev + 1);
+  const { toggleShuffle, isShuffling } = useShuffle();
+  const { elapsed, increaseElapsed, setElapsed } = useElapsed();
+  const { isPlaying, togglePlay, setIsPlaying, playSong, song } = usePlayback({
+    setElapsed,
+  });
+  const { clearPlayingInterval, setupInterval, checkIfSongFinished } =
+    usePlayingInterval({
+      song,
+      elapsed,
+      setIsPlaying,
+      setElapsed,
+      isPlaying,
+      increaseElapsed,
+    });
 
-  const playSong = (song: Song) => {
-    setSong(song);
-    setElapsed(0);
-    setIsPlaying(true);
-  };
-
-  const clearPlayingInterval = () => {
-    if (playingInterval.current) {
-      clearInterval(playingInterval.current);
-    }
-  };
-
-  const checkIfSongFinished = () => {
-    if (!song) return;
-    if (elapsed > song.duration) {
-      setIsPlaying(false);
-      setElapsed(0);
-      clearPlayingInterval();
-    }
-  };
+  const { skipForward, skipBack, queue, setQueue } = useQueueControl({
+    song,
+    playSong,
+  });
 
   useEffect(() => {
-    if (!isPlaying) return clearPlayingInterval();
-    playingInterval.current = setInterval(() => {
-      increaseElapsed();
-    }, 1000);
+    setupInterval();
     return () => clearPlayingInterval();
   }, [isPlaying]);
 
@@ -64,10 +61,14 @@ export default function PlayerProvider({ children }: PlayerProviderProps) {
         song,
         isPlaying,
         elapsed,
+        queue,
         playSong,
         togglePlay,
         setQueue,
-        queue,
+        skipForward,
+        skipBack,
+        toggleShuffle,
+        isShuffling,
       }}
     >
       {children}
