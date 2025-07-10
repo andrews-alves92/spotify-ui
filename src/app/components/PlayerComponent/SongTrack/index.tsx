@@ -1,7 +1,7 @@
-import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
-import { getPercentage, formatSecondsToMinutes } from "@/app/utils/formatters";
 import { HiOutlineVolumeUp } from "react-icons/hi";
 import ProgressBar from "../../ProgressBar";
+import { formatSecondsToMinutes, getPercentage } from "@/app/utils";
+import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 
 export default function SongTrack() {
   const { elapsed, currentPlayingSong } = usePlayer();

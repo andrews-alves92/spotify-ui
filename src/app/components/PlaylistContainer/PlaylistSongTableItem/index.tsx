@@ -1,10 +1,11 @@
 import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import { Song } from "@/app/entities";
-import { formatSecondsToMinutes } from "@/app/utils/formatters";
+
 import Image from "next/image";
 import { LuHeart } from "react-icons/lu";
 import SongNameContainer from "../SongNameContainer";
 import Style from "./playlist-songs-table-item.module.css";
+import { formatSecondsToMinutes } from "@/app/utils";
 
 interface PlaylistSongTableItemProps {
   song: Song;

@@ -1,5 +1,6 @@
 import { Song } from "@/app/entities";
-import { getRandomNumber } from "@/app/utils/formatters";
+import { getRandomNumber } from "@/app/utils";
+
 import { useState } from "react";
 
 interface UseQueueControlProps {

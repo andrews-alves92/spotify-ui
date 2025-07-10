@@ -1,5 +1,6 @@
 import { Playlist } from "@/app/entities";
-import { formatSecondsToHours } from "@/app/utils/formatters";
+import { formatSecondsToHours } from "@/app/utils";
+
 
 type PlaylistHeaderPick = Pick<
   Playlist,
