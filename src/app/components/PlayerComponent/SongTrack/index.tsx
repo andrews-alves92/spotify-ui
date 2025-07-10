@@ -1,10 +1,10 @@
-import usePlayerContext from "@/app/context-providers/PlayerContextProvider/usePlayerContext";
+import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import { getPercentage, formatSecondsToMinutes } from "@/app/utils/formatters";
 import { HiOutlineVolumeUp } from "react-icons/hi";
 import ProgressBar from "../../ProgressBar";
 
 export default function SongTrack() {
-  const { elapsed, currentPlayingSong } = usePlayerContext();
+  const { elapsed, currentPlayingSong } = usePlayer();
 
   return (
     <div className="d-flex flex-row flex-1 align-items-center gap-2 px-2">

@@ -1,4 +1,4 @@
-import usePlayerContext from "@/app/context-providers/PlayerContextProvider/usePlayerContext";
+import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import { Song } from "@/app/entities";
 import { formatSecondsToMinutes } from "@/app/utils/formatters";
 import Image from "next/image";
@@ -15,7 +15,7 @@ export default function PlaylistSongTableItem({
   song,
   index,
 }: PlaylistSongTableItemProps) {
-  const { playSong } = usePlayerContext();
+  const { playSong } = usePlayer();
   const handlePlaySong = () => playSong(song);
   return (
     <tr

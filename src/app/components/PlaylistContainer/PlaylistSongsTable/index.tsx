@@ -1,4 +1,4 @@
-import usePlayerContext from "@/app/context-providers/PlayerContextProvider/usePlayerContext";
+import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import { Song } from "@/app/entities";
 import PlaylistSongTableItem from "../PlaylistSongTableItem";
 import Style from "./playlist-songs-table.module.css";

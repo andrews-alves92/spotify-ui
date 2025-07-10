@@ -1,5 +1,5 @@
 import { Song } from "@/app/entities";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 
 interface UsePlayingIntervalProps {
@@ -32,6 +32,10 @@ export default function usePlayingInterval({ currentPlayingSong, elapsed, setIsP
             increaseElapsed();
         }, 1000);
     }
+
+    useEffect(() => {
+        checkIfSongFinished();
+    }, [elapsed]);
 
     return {
         clearPlayingInterval,

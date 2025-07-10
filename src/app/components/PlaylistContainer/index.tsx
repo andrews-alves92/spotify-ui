@@ -1,4 +1,4 @@
-import usePlayerContext from "@/app/context-providers/PlayerContextProvider/usePlayerContext";
+import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import playlistData from "@/app/data/playlistData";
 import { useEffect } from "react";
 import Style from "./playlist-container.module.css";
@@ -21,7 +21,7 @@ export default function PlaylistContainer() {
     artists,
   } = playlistData;
 
-  const { setQueue } = usePlayerContext();
+  const { setQueue } = usePlayer();
   useEffect(() => {
     setQueue(songs);
   }, [])

@@ -1,8 +1,8 @@
-import usePlayerContext from "@/app/context-providers/PlayerContextProvider/usePlayerContext";
+import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import Image from "next/image";
 
 export default function PlayerSongInfo() {
-  const { currentPlayingSong } = usePlayerContext();
+  const { currentPlayingSong } = usePlayer();
   return (
     currentPlayingSong && (
       <div className="flex-1 justify-content-start gap-2 align-items-center">

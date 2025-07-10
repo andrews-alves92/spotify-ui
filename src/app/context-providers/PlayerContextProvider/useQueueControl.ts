@@ -41,6 +41,7 @@ export default function useQueueControl({ currentPlayingSong, playSong, isShuffl
     };
 
     const shuffleSkip = () => {
+        if (queue.length == 0) return
         const nextSongIndex = getRandomNumber(0, queue.length - 1)
         const songToPlay = queue[nextSongIndex]
         if (!songToPlay) return

@@ -53,10 +53,6 @@ export default function PlayerProvider({ children }: PlayerProviderProps) {
     return () => clearPlayingInterval();
   }, [isPlaying]);
 
-  useEffect(() => {
-    checkIfSongFinished();
-  }, [elapsed]);
-
   return (
     <PlayerContext.Provider
       value={{

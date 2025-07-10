@@ -1,8 +1,8 @@
-import usePlayerContext from "@/app/context-providers/PlayerContextProvider/usePlayerContext";
+import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import { PiShuffleBold } from "react-icons/pi";
 
 export default function ShuffleButton() {
-  const { toggleShuffle, isShuffling } = usePlayerContext();
+  const { toggleShuffle, isShuffling } = usePlayer();
   return (
     <PiShuffleBold
       className={isShuffling ? "text-primary" : ""}
