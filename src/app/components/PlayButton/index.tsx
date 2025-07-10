@@ -1,14 +1,14 @@
 import usePlayerContext from "@/app/context-providers/PlayerContextProvider/usePlayerContext";
-import Style from "./play-button.module.css";
 import { HTMLAttributes } from "react";
 import { IoPause, IoPlay } from "react-icons/io5";
+import Style from "./play-button.module.css";
 
 interface PlayButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 export default function PlayButton({ ...rest }: PlayButtonProps) {
-  const { isPlaying, togglePlay, song } = usePlayerContext();
+  const { isPlaying, togglePlay, currentPlayingSong } = usePlayerContext();
 
   const play = () => {
-    if (!song) return;
+    if (!currentPlayingSong) return;
     togglePlay();
   };
   return (

@@ -7,8 +7,8 @@ interface SongNameContainerProps extends HtmlHTMLAttributes<HTMLHtmlElement> {
   song: Song;
 }
 export default function SongNameContainer({ song }: SongNameContainerProps) {
-  const { song: currenSelectedSong, isPlaying } = usePlayerContext();
-  const isSelected = currenSelectedSong?.id == song.id;
+  const { currentPlayingSong, isPlaying } = usePlayerContext();
+  const isSelected = currentPlayingSong?.id == song.id;
   return (
     <div className="d-flex flex-row align-items-end">
       {isSelected && <PlayingAnimationIcon isPlaying={isPlaying} />}

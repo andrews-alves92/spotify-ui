@@ -1,13 +1,13 @@
 import { Song } from "@/app/entities";
-import useElapsed from "@/app/hooks/useElapsed";
-import usePlayback from "@/app/hooks/usePlayback";
-import usePlayingInterval from "@/app/hooks/usePlayingInterval";
-import useQueueControl from "@/app/hooks/useQueueControl";
-import useShuffle from "@/app/hooks/useShuffle";
 import { createContext, useEffect, useRef, useState } from "react";
+import useShuffleControl from "./useShuffleControl";
+import useElapsed from "./useElapsed";
+import usePlayback from "./usePlayback";
+import usePlayingInterval from "./usePlayingInterval";
+import useQueueControl from "./useQueueControl";
 
 interface PlayerContextProps {
-  song: Song | undefined;
+  currentPlayingSong: Song | undefined;
   queue: Song[];
   isPlaying: boolean;
   isShuffling: boolean;
@@ -26,14 +26,15 @@ interface PlayerProviderProps {
   children: React.ReactNode;
 }
 export default function PlayerProvider({ children }: PlayerProviderProps) {
-  const { toggleShuffle, isShuffling } = useShuffle();
+  const { toggleShuffle, isShuffling } = useShuffleControl();
   const { elapsed, increaseElapsed, setElapsed } = useElapsed();
-  const { isPlaying, togglePlay, setIsPlaying, playSong, song } = usePlayback({
-    setElapsed,
-  });
+  const { isPlaying, togglePlay, setIsPlaying, playSong, currentPlayingSong } =
+    usePlayback({
+      setElapsed,
+    });
   const { clearPlayingInterval, setupInterval, checkIfSongFinished } =
     usePlayingInterval({
-      song,
+      currentPlayingSong,
       elapsed,
       setIsPlaying,
       setElapsed,
@@ -42,8 +43,9 @@ export default function PlayerProvider({ children }: PlayerProviderProps) {
     });
 
   const { skipForward, skipBack, queue, setQueue } = useQueueControl({
-    song,
+    currentPlayingSong,
     playSong,
+    isShuffling,
   });
 
   useEffect(() => {
@@ -58,7 +60,7 @@ export default function PlayerProvider({ children }: PlayerProviderProps) {
   return (
     <PlayerContext.Provider
       value={{
-        song,
+        currentPlayingSong,
         isPlaying,
         elapsed,
         queue,

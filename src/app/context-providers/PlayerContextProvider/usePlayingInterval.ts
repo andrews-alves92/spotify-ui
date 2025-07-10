@@ -1,6 +1,17 @@
+import { Song } from "@/app/entities";
 import { useRef } from "react";
 
-export default function usePlayingInterval({ song, elapsed, setIsPlaying, setElapsed, isPlaying, increaseElapsed }: any) {
+
+interface UsePlayingIntervalProps {
+    currentPlayingSong?: Song,
+    elapsed: number,
+    setIsPlaying: (_: boolean) => void,
+    setElapsed: (_: number) => void
+    isPlaying: boolean,
+    increaseElapsed: () => void
+}
+
+export default function usePlayingInterval({ currentPlayingSong, elapsed, setIsPlaying, setElapsed, isPlaying, increaseElapsed }: UsePlayingIntervalProps) {
     const playingInterval = useRef<NodeJS.Timeout>(null);
     const clearPlayingInterval = () => {
         if (playingInterval.current) {
@@ -8,8 +19,8 @@ export default function usePlayingInterval({ song, elapsed, setIsPlaying, setEla
         }
     };
     const checkIfSongFinished = () => {
-        if (!song) return;
-        if (elapsed > song.duration) {
+        if (!currentPlayingSong) return;
+        if (elapsed > currentPlayingSong.duration) {
             setIsPlaying(false);
             setElapsed(0);
             clearPlayingInterval();

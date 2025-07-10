@@ -4,7 +4,7 @@ import { HiOutlineVolumeUp } from "react-icons/hi";
 import ProgressBar from "../../ProgressBar";
 
 export default function SongTrack() {
-  const { elapsed, song } = usePlayerContext();
+  const { elapsed, currentPlayingSong } = usePlayerContext();
 
   return (
     <div className="d-flex flex-row flex-1 align-items-center gap-2 px-2">
@@ -12,9 +12,11 @@ export default function SongTrack() {
         <span className="small text-start" style={{ width: 30 }}>
           {formatSecondsToMinutes(elapsed)}
         </span>
-        <ProgressBar percentage={getPercentage(song?.duration || 0, elapsed)} />
+        <ProgressBar
+          percentage={getPercentage(currentPlayingSong?.duration || 0, elapsed)}
+        />
         <span className="small text-start" style={{ width: 30 }}>
-          {formatSecondsToMinutes(song?.duration || 0)}
+          {formatSecondsToMinutes(currentPlayingSong?.duration || 0)}
         </span>
       </div>
       <HiOutlineVolumeUp size={20} role="button" />
