@@ -26,7 +26,7 @@ export default function PlaylistSongTableItem({
       <th className="" scope="row ">
         {index + 1}
       </th>
-      <td className="" onClick={handlePlaySong}>
+      <td className="" onDoubleClick={handlePlaySong}>
         <div className="flex-1 justify-content-start gap-3 align-items-center">
           <Image
             src={`/albuns/${song.album_cover}`}

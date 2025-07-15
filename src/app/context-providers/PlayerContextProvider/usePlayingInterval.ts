@@ -5,13 +5,12 @@ import { useEffect, useRef } from "react";
 interface UsePlayingIntervalProps {
     currentPlayingSong?: Song,
     elapsed: number,
-    setIsPlaying: (_: boolean) => void,
-    setElapsed: (_: number) => void
     isPlaying: boolean,
     increaseElapsed: () => void
+    onSongFinished: () => void
 }
 
-export default function usePlayingInterval({ currentPlayingSong, elapsed, setIsPlaying, setElapsed, isPlaying, increaseElapsed }: UsePlayingIntervalProps) {
+export default function usePlayingInterval({ currentPlayingSong, elapsed, isPlaying, increaseElapsed, onSongFinished }: UsePlayingIntervalProps) {
     const playingInterval = useRef<NodeJS.Timeout>(null);
     const clearPlayingInterval = () => {
         if (playingInterval.current) {
@@ -20,11 +19,8 @@ export default function usePlayingInterval({ currentPlayingSong, elapsed, setIsP
     };
     const checkIfSongFinished = () => {
         if (!currentPlayingSong) return;
-        if (elapsed > currentPlayingSong.duration) {
-            setIsPlaying(false);
-            setElapsed(0);
-            clearPlayingInterval();
-        }
+        if (elapsed <= currentPlayingSong.duration) return
+        onSongFinished()
     };
     const setupInterval = () => {
         if (!isPlaying) return clearPlayingInterval();

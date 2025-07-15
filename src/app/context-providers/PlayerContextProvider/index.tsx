@@ -29,23 +29,20 @@ interface PlayerProviderProps {
 export default function PlayerProvider({ children }: PlayerProviderProps) {
   const { toggleShuffle, isShuffling } = useShuffleControl();
   const { elapsed, increaseElapsed, setElapsed } = useElapsed();
-  const { isPlaying, togglePlay, setIsPlaying, playSong, currentPlayingSong } =
-    usePlayback({
-      setElapsed,
-    });
-  const { clearPlayingInterval, setupInterval } = usePlayingInterval({
-    currentPlayingSong,
-    elapsed,
-    setIsPlaying,
+  const { isPlaying, togglePlay, playSong, currentPlayingSong } = usePlayback({
     setElapsed,
-    isPlaying,
-    increaseElapsed,
   });
-
   const { skipForward, skipBack, queue, setQueue } = useQueueControl({
     currentPlayingSong,
     playSong,
     isShuffling,
+  });
+  const { clearPlayingInterval, setupInterval } = usePlayingInterval({
+    currentPlayingSong,
+    elapsed,
+    isPlaying,
+    increaseElapsed,
+    onSongFinished: () => skipForward(),
   });
 
   useEffect(() => {
