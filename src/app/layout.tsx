@@ -1,8 +1,12 @@
+
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import "./globals.scss";
 import { Inter } from "next/font/google";
+import { useEffect } from "react";
+import usePlayer from "./context-providers/PlayerContextProvider/usePlayer";
+import { useUserStore } from "./stores/useUserStore";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,6 +22,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const { currentPlayingSong, elapsed } = usePlayer();
+  // const savePlayingSong = useUserStore((state) => state.savePlayingSong);
+  // useEffect(() => {
+  //   const handleBeforeUnload = () => {
+  //     if (currentPlayingSong) {
+  //       savePlayingSong({ ...currentPlayingSong, elapsed });
+  //     }
+  //   };
+  //   window.addEventListener("beforeunload", handleBeforeUnload);
+  //   return () => {
+  //     window.removeEventListener("beforeunload", handleBeforeUnload);
+  //   };
+  // }, []);
+
   return (
     <html lang="en">
       <body data-bs-theme="dark" className={inter.className}>

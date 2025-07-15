@@ -12,7 +12,8 @@ interface PlayerContextProps {
   isPlaying: boolean;
   isShuffling: boolean;
   elapsed: number;
-  playSong: (song: Song) => void;
+  setElapsed: (elapsed: number) => void;
+  playSong: (song: Song, imediate?: boolean) => void;
   togglePlay: () => void;
   setQueue: (queue: Song[]) => void;
   skipForward: () => void;
@@ -32,15 +33,14 @@ export default function PlayerProvider({ children }: PlayerProviderProps) {
     usePlayback({
       setElapsed,
     });
-  const { clearPlayingInterval, setupInterval, checkIfSongFinished } =
-    usePlayingInterval({
-      currentPlayingSong,
-      elapsed,
-      setIsPlaying,
-      setElapsed,
-      isPlaying,
-      increaseElapsed,
-    });
+  const { clearPlayingInterval, setupInterval } = usePlayingInterval({
+    currentPlayingSong,
+    elapsed,
+    setIsPlaying,
+    setElapsed,
+    isPlaying,
+    increaseElapsed,
+  });
 
   const { skipForward, skipBack, queue, setQueue } = useQueueControl({
     currentPlayingSong,
@@ -60,13 +60,14 @@ export default function PlayerProvider({ children }: PlayerProviderProps) {
         isPlaying,
         elapsed,
         queue,
+        isShuffling,
         playSong,
         togglePlay,
         setQueue,
         skipForward,
         skipBack,
         toggleShuffle,
-        isShuffling,
+        setElapsed,
       }}
     >
       {children}

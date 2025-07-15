@@ -1,5 +1,6 @@
 import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import playlistData from "@/app/data/playlistData";
+import { useUserStore } from "@/app/stores/useUserStore";
 import { useEffect } from "react";
 import Style from "./playlist-container.module.css";
 import PlaylistArtists from "./PlaylistArtists";
@@ -24,7 +25,7 @@ export default function PlaylistContainer() {
   const { setQueue } = usePlayer();
   useEffect(() => {
     setQueue(songs);
-  }, [])
+  }, []);
   return (
     <div className={`h-100 rounded-3 pt-4 px-5 ${Style.playlistContainer} `}>
       <div className="row">

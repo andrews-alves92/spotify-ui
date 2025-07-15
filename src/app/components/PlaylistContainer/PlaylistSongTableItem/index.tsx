@@ -1,11 +1,11 @@
 import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import { Song } from "@/app/entities";
-
+import { formatSecondsToMinutes } from "@/app/utils";
 import Image from "next/image";
-import { LuHeart } from "react-icons/lu";
+import FavoriteSongButton from "../../FavotiteSongButton";
 import SongNameContainer from "../SongNameContainer";
 import Style from "./playlist-songs-table-item.module.css";
-import { formatSecondsToMinutes } from "@/app/utils";
+import useFavoriteStore from "@/app/stores/useFavoriteStore";
 
 interface PlaylistSongTableItemProps {
   song: Song;
@@ -18,15 +18,15 @@ export default function PlaylistSongTableItem({
 }: PlaylistSongTableItemProps) {
   const { playSong } = usePlayer();
   const handlePlaySong = () => playSong(song);
+  const favoriteList = useFavoriteStore((state) => state.favorite_list);
+  const toggleFavorite = useFavoriteStore((state) => state.toggleFavorite);
+  const handleToggleFavorite = () => toggleFavorite(song.id);
   return (
-    <tr
-      className={`small ${Style.itemContainer}`}
-      onDoubleClick={handlePlaySong}
-    >
+    <tr className={`small ${Style.itemContainer}`}>
       <th className="" scope="row ">
         {index + 1}
       </th>
-      <td className="">
+      <td className="" onClick={handlePlaySong}>
         <div className="flex-1 justify-content-start gap-3 align-items-center">
           <Image
             src={`/albuns/${song.album_cover}`}
@@ -44,7 +44,10 @@ export default function PlaylistSongTableItem({
       <td className="">{song.album}</td>
       <td className="">{formatSecondsToMinutes(song.duration)}</td>
       <td className="">
-        <LuHeart size={18} />
+        <FavoriteSongButton
+          isFavorite={favoriteList.includes(song.id)}
+          onClick={handleToggleFavorite}
+        />
       </td>
     </tr>
   );

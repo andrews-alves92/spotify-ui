@@ -62,6 +62,7 @@ const playlistData: Playlist = {
       "artist": "AC/DC",
       "album": "Back in Black",
       "duration": 255,
+      "is_favorite": false,
       "album_cover": "backinblackalbum.png"
     },
     {
@@ -70,6 +71,7 @@ const playlistData: Playlist = {
       "artist": "Faith No More",
       "album": "Angel Dust",
       "duration": 356,
+      "is_favorite": false,
       "album_cover": "therealthing.png"
     },
     {
@@ -78,6 +80,7 @@ const playlistData: Playlist = {
       "artist": "Aerosmith",
       "album": "Aerosmith",
       "duration": 276,
+      "is_favorite": false,
       "album_cover": "aerosmithalbum.png"
     },
     {
@@ -86,6 +89,7 @@ const playlistData: Playlist = {
       "artist": "Guns N' Roses",
       "album": "Use Your Illusion II",
       "duration": 500,
+      "is_favorite": false,
       "album_cover": "illusion2.png"
     },
     {
@@ -94,6 +98,7 @@ const playlistData: Playlist = {
       "artist": "Led Zeppelin",
       "album": "Led Zeppelin IV",
       "duration": 482,
+      "is_favorite": false,
       "album_cover": "zeppeliniv.png"
     },
     {
@@ -102,6 +107,7 @@ const playlistData: Playlist = {
       "artist": "Van Halen",
       "album": "Van Halen II",
       "duration": 184,
+      "is_favorite": false,
       "album_cover": "vanhalen2.png"
     },
     {
@@ -110,6 +116,7 @@ const playlistData: Playlist = {
       "artist": "Pink Floyd",
       "album": "The Dark Side of the Moon",
       "duration": 382,
+      "is_favorite": false,
       "album_cover": "darksidemoon.png"
     },
     {
@@ -118,6 +125,7 @@ const playlistData: Playlist = {
       "artist": "Guns N' Roses",
       "album": "Appetite for Destruction",
       "duration": 356,
+      "is_favorite": false,
       "album_cover": "appetitefordestruction.png"
     },
     {
@@ -126,6 +134,7 @@ const playlistData: Playlist = {
       "artist": "Black Sabbath",
       "album": "Paranoid",
       "duration": 171,
+      "is_favorite": false,
       "album_cover": "paranoid.png"
     },
     {
@@ -134,6 +143,7 @@ const playlistData: Playlist = {
       "artist": "Pink Floyd",
       "album": "The Wall",
       "duration": 269,
+      "is_favorite": false,
       "album_cover": "thewall.png"
     },
     {
@@ -142,6 +152,7 @@ const playlistData: Playlist = {
       "artist": "Megadeth",
       "album": "Rust in Peace",
       "duration": 274,
+      "is_favorite": false,
       "album_cover": "rustinpeace.png"
     },
     {
@@ -150,6 +161,7 @@ const playlistData: Playlist = {
       "artist": "Faith No More",
       "album": "The Real Thing",
       "duration": 304,
+      "is_favorite": false,
       "album_cover": "therealthing.png"
     },
     {
@@ -158,6 +170,7 @@ const playlistData: Playlist = {
       "artist": "AC/DC",
       "album": "High Voltage",
       "duration": 339,
+      "is_favorite": false,
       "album_cover": "highvoltage.png"
     },
     {
@@ -166,6 +179,7 @@ const playlistData: Playlist = {
       "artist": "Van Halen",
       "album": "1984",
       "duration": 255,
+      "is_favorite": false,
       "album_cover": "1984.png"
     }
   ]

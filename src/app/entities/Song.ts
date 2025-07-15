@@ -5,4 +5,5 @@ export type Song = {
     album: string;
     duration: number;
     album_cover: string;
+    is_favorite: boolean
 }

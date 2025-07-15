@@ -8,20 +8,17 @@ export default function usePlayback({ setElapsed }: UseQueueControlProps) {
     const [currentPlayingSong, setCurrentPlayingSong] = useState<Song>();
     const [isPlaying, setIsPlaying] = useState(false);
     const togglePlay = () => setIsPlaying((prev) => !prev);
-
-    const playSong = (song: Song) => {
+    const playSong = (song: Song, imediate = true) => {
         setCurrentPlayingSong(song);
         setElapsed(0);
-        setIsPlaying(true);
+        setIsPlaying(imediate);
     };
-
     return {
         isPlaying,
         togglePlay,
         setIsPlaying,
         playSong,
         currentPlayingSong,
-        setCurrentPlayingSong
     }
 
 
