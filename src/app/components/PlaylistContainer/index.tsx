@@ -1,6 +1,7 @@
 import usePlayer from "@/app/context-providers/PlayerContextProvider/usePlayer";
 import playlistData from "@/app/data/playlistData";
-import { useUserStore } from "@/app/stores/useUserStore";
+import usePlaylist from "@/app/hooks/usePlaylist";
+import PlaylistService from "@/app/services/PlaylistService";
 import { useEffect } from "react";
 import Style from "./playlist-container.module.css";
 import PlaylistArtists from "./PlaylistArtists";
@@ -9,8 +10,28 @@ import PlaylistCover from "./PlaylistCover";
 import Genres from "./PlaylistGenres";
 import PlaylistHeader from "./PlaylistHeader";
 import PlaylistSongsTable from "./PlaylistSongsTable";
+import LoadingIndicator from "../LoadingIndicator";
+import { useQuery } from "@tanstack/react-query";
 
+const playlistService = new PlaylistService();
 export default function PlaylistContainer() {
+  const {
+    data: playlist,
+    isPending,
+    isError,
+  } = useQuery({
+    queryKey: ["playlist"],
+    queryFn: playlistService.getPlaylist,
+  });
+  const { setQueue } = usePlayer();
+
+  useEffect(() => {
+    if (playlist) {
+      setQueue(playlist.songs);
+    }
+  }, [playlist]);
+  if (isPending) return <LoadingIndicator />;
+  if (isError) return <p>Deu erro</p>;
   const {
     name,
     author,
@@ -20,12 +41,7 @@ export default function PlaylistContainer() {
     cover_image,
     tags,
     artists,
-  } = playlistData;
-
-  const { setQueue } = usePlayer();
-  useEffect(() => {
-    setQueue(songs);
-  }, []);
+  } = playlist;
   return (
     <div className={`h-100 rounded-3 pt-4 px-5 ${Style.playlistContainer} `}>
       <div className="row">
