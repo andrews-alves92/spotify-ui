@@ -7,7 +7,7 @@ export default class PlaylistService implements PlaylistRepository {
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve(playlistData)
-            }, 5000);
+            }, 1000);
         })
     };
 
